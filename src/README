@@ -1,0 +1,9 @@
+
+Using "makefile.template" as a template...
+
+- First, modify "makefile" to be compatible with your system's compiler
+- Then, type "make" to create executable file "windonly" 
+- Then, go up the directory tree one level and run the script
+
+Richard M. Yablonsky, 1/8/10
+
