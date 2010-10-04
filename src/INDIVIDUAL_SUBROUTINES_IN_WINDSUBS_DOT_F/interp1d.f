@@ -1,6 +1,6 @@
       SUBROUTINE INTERP1d(mask,n,ni,x,y,xi,yi)
 c--------------------------------------------------------------
-c   This subroutine determines ni values yi at the points xi 
+c   This subroutine determines ni values yi at the points xi
 c   interpolating between the n values y at the points x
 c   values equal to mask are ignored
 c--------------------------------------------------------------
