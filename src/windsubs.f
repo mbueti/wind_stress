@@ -827,12 +827,16 @@ c      WR=-WND*TAN(RANGL)
       WY=WF*(DELTAX)/R+WR*(DELTAY)/R+UTYa
       WM=SQRT(WX**2+WY**2)
 
-      IF(WM.LT.10.) CD=1.14*1.E-3
-      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
+      IF(WM.LT.10.) THEN
+        CD=1.14*1.E-3
+      ELSE 
+        CD=(0.49+.065*WM)*1.E-3
+      END IF
+
       IF(WM.LE.35.) then
-      WUSURF(I,J)=WUSURF(I,J)-CD*ROA*WM*WX/RHO_0
+        WUSURF(I,J)=WUSURF(I,J)-CD*ROA*WM*WX/RHO_0
       else
-      WUSURF(I,J)=WUSURF(I,J)-(3.3368+
+        WUSURF(I,J)=WUSURF(I,J)-(3.3368+
      1      (WM-34.0449)**0.3)*WX/(WM*RHO_0)
       end if
 
@@ -879,12 +883,16 @@ c      RANGL=ANGL(K)*PI/180.
       WY=WF*(DELTAX)/R+WR*(DELTAY)/R+UTYa
       WM=SQRT(WX**2+WY**2)
 
-      IF(WM.LT.10.) CD=1.14*1.E-3
-      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
+      IF(WM.LT.10.) THEN
+        CD=1.14*1.E-3
+      ELSE
+        CD=(0.49+.065*WM)*1.E-3
+      END IF
+      
       IF(WM.le.35.) then
-      WVSURF(I,J)=WVSURF(I,J)-CD*ROA*WM*WY/RHO_0
+        WVSURF(I,J)=WVSURF(I,J)-CD*ROA*WM*WY/RHO_0
       else
-      WVSURF(I,J)=WVSURF(I,J)-(3.3368+
+        WVSURF(I,J)=WVSURF(I,J)-(3.3368+
      1      (WM-34.0449)**0.3)*WY/(WM*RHO_0)
       end if
 
@@ -932,18 +940,19 @@ c      WINDX(i,j)=WX
 c      WINDY(i,j)=WY
       WM=SQRT(WX**2+WY**2)
 
-      IF(WM.LT.10.) CD=1.14*1.E-3
-      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
-      IF(WM.GT.35.) THEN
+    IF(WM.LT.10.) THEN
+      CD=1.14*1.E-3
+    ELSE
+      CD=(0.49+.065*WM)*1.E-3
+    END IF
+    
+    IF(WM.GT.35.) THEN
       TMAX=3.3368+(WM-34.0449)**0.3
       TAUX(I,J)=TAUX(I,J)+TMAX*WX/WM
       TAUY(I,J)=TAUY(I,J)+TMAX*WY/WM
-      ELSE
+    ELSE
       TAUY(I,J)=TAUY(I,J)+CD*ROA*WM*WY
       TAUX(I,J)=TAUX(I,J)+CD*ROA*WM*WX
-
-C          WTSURF(I,J)=30.*WM/(4000*1024.)
-
      END IF
 
  351  CONTINUE
