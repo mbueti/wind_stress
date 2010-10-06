@@ -827,23 +827,23 @@ c      WR=-WND*TAN(RANGL)
       WY=WF*(DELTAX)/R+WR*(DELTAY)/R+UTYa
       WM=SQRT(WX**2+WY**2)
 cRMY USE NEW STRESS PARAMETERIZATION: CD3 FROM TUNG'S THESIS
-cRMY      IF(WM.LT.10.) CD=1.14*1.E-3
-cRMY      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
-cRMY      IF(WM.LE.35.) then
-cRMY      WUSURF(I,J)=WUSURF(I,J)-CD*ROA*WM*WX/RHO_0
-cRMY      else
-cRMY      WUSURF(I,J)=WUSURF(I,J)-(3.3368+
-cRMY     1      (WM-34.0449)**0.3)*WX/(WM*RHO_0)
-cRMY      end if
-      IF(WM.LT.12.5) then
-        Z0W=0.0185/GRAV*(0.001*WM**2.+0.028*WM)**2.
-        CD=0.4**2./(log(10./Z0W))**2.
-      else
-        CD1=3.58e-9*WM**3.-9.88e-7*WM**2.+7.81e-5*WM+7.9107e-4
-        DCDL=1.12e-7*WM**2.+2.49e-5*WM-3.32e-4
-        CD=CD1-DCDL
-      end if
+      IF(WM.LT.10.) CD=1.14*1.E-3
+      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
+      IF(WM.LE.35.) then
       WUSURF(I,J)=WUSURF(I,J)-CD*ROA*WM*WX/RHO_0
+      else
+      WUSURF(I,J)=WUSURF(I,J)-(3.3368+
+     1      (WM-34.0449)**0.3)*WX/(WM*RHO_0)
+      end if
+cRMY  IF(WM.LT.12.5) then
+cRMY    Z0W=0.0185/GRAV*(0.001*WM**2.+0.028*WM)**2.
+cRMY    CD=0.4**2./(log(10./Z0W))**2.
+cRMY  else
+cRMY    CD1=3.58e-9*WM**3.-9.88e-7*WM**2.+7.81e-5*WM+7.9107e-4
+cRMY    DCDL=1.12e-7*WM**2.+2.49e-5*WM-3.32e-4
+cRMY    CD=CD1-DCDL
+cRMY  end if
+cRMY  WUSURF(I,J)=WUSURF(I,J)-CD*ROA*WM*WX/RHO_0
 
 C  CALCULATING V-WIND STRESS FOR I,J POINT OF V-VELOCITY GRID
       F1=LONGMIN+(I-1)*(LONGMAX-LONGMIN)/(IM-1)
@@ -888,23 +888,23 @@ c      RANGL=ANGL(K)*PI/180.
       WY=WF*(DELTAX)/R+WR*(DELTAY)/R+UTYa
       WM=SQRT(WX**2+WY**2)
 cRMY USE NEW STRESS PARAMETERIZATION: CD3 FROM TUNG'S THESIS
-cRMY      IF(WM.LT.10.) CD=1.14*1.E-3
-cRMY      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
-cRMY      IF(WM.le.35.) then
-cRMY      WVSURF(I,J)=WVSURF(I,J)-CD*ROA*WM*WY/RHO_0
-cRMY      else
-cRMY      WVSURF(I,J)=WVSURF(I,J)-(3.3368+
-cRMY     1      (WM-34.0449)**0.3)*WY/(WM*RHO_0)
-cRMY      end if
-      IF(WM.LT.12.5) then
-        Z0W=0.0185/GRAV*(0.001*WM**2.+0.028*WM)**2.
-        CD=0.4**2./(log(10./Z0W))**2.
-      else
-        CD1=3.58e-9*WM**3.-9.88e-7*WM**2.+7.81e-5*WM+7.9107e-4
-        DCDL=1.12e-7*WM**2.+2.49e-5*WM-3.32e-4
-        CD=CD1-DCDL
-      end if
+      IF(WM.LT.10.) CD=1.14*1.E-3
+      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
+      IF(WM.le.35.) then
       WVSURF(I,J)=WVSURF(I,J)-CD*ROA*WM*WY/RHO_0
+      else
+      WVSURF(I,J)=WVSURF(I,J)-(3.3368+
+     1      (WM-34.0449)**0.3)*WY/(WM*RHO_0)
+      end if
+cRMY  IF(WM.LT.12.5) then
+cRMY    Z0W=0.0185/GRAV*(0.001*WM**2.+0.028*WM)**2.
+cRMY    CD=0.4**2./(log(10./Z0W))**2.
+cRMY  else
+cRMY    CD1=3.58e-9*WM**3.-9.88e-7*WM**2.+7.81e-5*WM+7.9107e-4
+cRMY    DCDL=1.12e-7*WM**2.+2.49e-5*WM-3.32e-4
+cRMY    CD=CD1-DCDL
+cRMY  end if
+cRMY  WVSURF(I,J)=WVSURF(I,J)-CD*ROA*WM*WY/RHO_0
 
 C  CALCULATING WIND STRESS FOR I,J POINT OF DEPTH GRID
       F1=LONGMIN+(I-1)*(LONGMAX-LONGMIN)/(IM-1)
@@ -950,29 +950,29 @@ c      WINDX(i,j)=WX
 c      WINDY(i,j)=WY
       WM=SQRT(WX**2+WY**2)
 cRMY USE NEW STRESS PARAMETERIZATION: CD3 FROM TUNG'S THESIS
-cRMY      IF(WM.LT.10.) CD=1.14*1.E-3
-cRMY      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
-cRMY      IF(WM.GT.35.) THEN
-cRMY      TMAX=3.3368+(WM-34.0449)**0.3
-cRMY      TAUX(I,J)=TAUX(I,J)+TMAX*WX/WM
-cRMY      TAUY(I,J)=TAUY(I,J)+TMAX*WY/WM
-cRMY      ELSE
-cRMY      TAUY(I,J)=TAUY(I,J)+CD*ROA*WM*WY
-cRMY      TAUX(I,J)=TAUX(I,J)+CD*ROA*WM*WX
-cRMY
-cRMYC          WTSURF(I,J)=30.*WM/(4000*1024.)
-cRMY
-cRMY     END IF
-      IF(WM.LT.12.5) then
-        Z0W=0.0185/GRAV*(0.001*WM**2.+0.028*WM)**2.
-        CD=0.4**2./(log(10./Z0W))**2.
-      else
-        CD1=3.58e-9*WM**3.-9.88e-7*WM**2.+7.81e-5*WM+7.9107e-4
-        DCDL=1.12e-7*WM**2.+2.49e-5*WM-3.32e-4
-        CD=CD1-DCDL
-      end if
+      IF(WM.LT.10.) CD=1.14*1.E-3
+      IF(WM.GE.10.) CD=(0.49+.065*WM)*1.E-3
+      IF(WM.GT.35.) THEN
+      TMAX=3.3368+(WM-34.0449)**0.3
+      TAUX(I,J)=TAUX(I,J)+TMAX*WX/WM
+      TAUY(I,J)=TAUY(I,J)+TMAX*WY/WM
+      ELSE
       TAUY(I,J)=TAUY(I,J)+CD*ROA*WM*WY
       TAUX(I,J)=TAUX(I,J)+CD*ROA*WM*WX
+
+C          WTSURF(I,J)=30.*WM/(4000*1024.)
+
+     END IF
+cRMY  IF(WM.LT.12.5) then
+cRMY    Z0W=0.0185/GRAV*(0.001*WM**2.+0.028*WM)**2.
+cRMY    CD=0.4**2./(log(10./Z0W))**2.
+cRMY  else
+cRMY    CD1=3.58e-9*WM**3.-9.88e-7*WM**2.+7.81e-5*WM+7.9107e-4
+cRMY    DCDL=1.12e-7*WM**2.+2.49e-5*WM-3.32e-4
+cRMY    CD=CD1-DCDL
+cRMY  end if
+cRMY  TAUY(I,J)=TAUY(I,J)+CD*ROA*WM*WY
+cRMY  TAUX(I,J)=TAUX(I,J)+CD*ROA*WM*WX
 
  351  CONTINUE
  350  CONTINUE
