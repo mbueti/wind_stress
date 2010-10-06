@@ -571,7 +571,7 @@ c
      * 21.,21.,21.,21./
 c     print*,'In subroutine WIND ...'
 c
-      WIND_SCALE=0.8
+      WIND_SCALE=1.0
       ROA=1.28
       RMAX=50.E3
       PI=3.1415927
