@@ -276,9 +276,9 @@ C
          INCLUDE 'comblk1.h'    
 c
       REARTH=6371.E3
-      LATMIN=10.
-      LATMAX=47.5
-      LONGMIN=-98.5
+      LATMIN=0.
+      LATMAX=50
+      LONGMIN=-100
       LONGMAX=-50.
 c
       PI=3.1415927E0
