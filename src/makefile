@@ -17,6 +17,7 @@ FFLAGS = -O3  -convert big_endian
 all:            $(CMD)
 $(CMD): $(OBJ)
 	$(FC) $(FFLAGS) -o $(@) $(OBJ) $(LIBS)
+	test -d ../exe || mkdir ../exe
 	mv windsubs.o ../exe/
 	mv MAIN.o ../exe/
 	mv windonly ../exe/
