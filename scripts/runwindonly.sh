@@ -26,7 +26,7 @@ rm fort.*
 
 echo "WindOnly is finished. Packing output."
 
-tar -czf $name.$startdate.tar.gz TXY.* windonly.out parameters.inp track
-rm -rf TXY.* windonly.out parameters.inp track
+tar -czf $name.$startdate.tar.gz TXY.* WSURF.* windonly.out parameters.inp track
+rm -rf TXY.* WSURF.* windonly.out parameters.inp track
 
 echo "Output packed and available in $name.$startdate.tar.gz"
