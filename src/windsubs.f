@@ -464,7 +464,8 @@ C----------------------- END PRINT SECTION -----------------------------
 C
       return
       END
-      SUBROUTINE OUTPUT
+      
+      SUBROUTINE OUTPUT()
 C=========================================================
 C save the output for graphics/analysis
 C Written by Erxuan Fu, GSO,URI,11/3/94
@@ -495,8 +496,16 @@ C
       CLOSE(39)
       WRITE(6,*) ' --> ',FN
 C
+      FN = 'WSURF.'//DOUT
+      OPEN(40,FILE=FN,STATUS='UNKNOWN',form='unformatted')
+      WRITE(40) WUSURF
+      WRITE(40) WVSURF
+      CLOSE(40)
+      WRITE(6,*) ' --> ',FN
+C      
       RETURN
       END
+      
       SUBROUTINE VERINTERP(n,ni,x,y,xi,yi)
 c--------------------------------------------------------------
 c   This subroutine determines ni values yi at the points xi 
