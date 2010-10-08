@@ -482,6 +482,7 @@ C=========================================================
       INTEGER yyear
       CHARACTER FN*15, DOUT*8
       integer*4 sstartdate,date
+      integer :: ncid
 C
       CALL DATE2DAY(year,julday,startdate)
 CC
@@ -504,7 +505,7 @@ C
       CLOSE(40)
       WRITE(6,*) ' --> ',FN
 C
-      NF90_CREATE('gustav_winds.nc')
+  call check( nf90_create('gustav.nc', NF90_CLOBBER, ncid) )
 C      
       RETURN
       END
