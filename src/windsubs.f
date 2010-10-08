@@ -502,6 +502,8 @@ C
       WRITE(40) WVSURF
       CLOSE(40)
       WRITE(6,*) ' --> ',FN
+C
+      NF90_CREATE('gustav_winds.nc')
 C      
       RETURN
       END
