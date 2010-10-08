@@ -5,7 +5,7 @@ FC  = /opt/intel/Compiler/11.1/064/bin/intel64/ifort
 LDFLAGS =   
 LIBS = 
 CMD =  ./windonly
-FFLAGS = -O3  -convert big_endian -I $NETCDFINC
+FFLAGS = -O3  -convert big_endian -I $(NETCDFINC) -L $(NETCDFLIBDIR)
 .SUFFIXES: .o .f .f90
 
 .f.o:
