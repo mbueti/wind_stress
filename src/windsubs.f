@@ -505,7 +505,7 @@ C
       CLOSE(40)
       WRITE(6,*) ' --> ',FN
 C
-  call check( nf90_create('gustav.nc', NF90_CLOBBER, ncid) )
+      call check( nf90_create('gustav.nc', NF90_CLOBBER, ncid) )
 C      
       RETURN
       END
