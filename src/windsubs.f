@@ -471,8 +471,8 @@ C save the output for graphics/analysis
 C Written by Erxuan Fu, GSO,URI,11/3/94
 C=========================================================
       INCLUDE 'comblk.h'
-      include 'comblk1.h'
-      include 'netcdf'
+      INCLUDE 'comblk1.h'
+      INCLUDE 'netcdf.inc'
 
       REAL TMP1(IM,JM),TMP2(IM,JM),TMP3(IM,JM,KB),jjulday
       REAL DB1(KB-1)
