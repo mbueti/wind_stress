@@ -470,8 +470,10 @@ C=========================================================
 C save the output for graphics/analysis
 C Written by Erxuan Fu, GSO,URI,11/3/94
 C=========================================================
+      USE netcdf
       INCLUDE 'comblk.h'
       INCLUDE 'comblk1.h'
+      INCLUDE 'netcdf.inc'
 
       REAL TMP1(IM,JM),TMP2(IM,JM),TMP3(IM,JM,KB),jjulday
       REAL DB1(KB-1)
@@ -504,7 +506,8 @@ C
       CLOSE(40)
       WRITE(6,*) ' --> ',FN
 C
-      ncid=NF_CREATE('gustav.nc', NF90_CLOBBER)
+      status = NF90_CREATE(path = "foo.nc", 
+     &         cmode = NF90_CLOBBER, ncid = ncid)
 C      
       RETURN
       END
