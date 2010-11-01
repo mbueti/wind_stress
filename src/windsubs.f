@@ -278,8 +278,8 @@ c
       REARTH=6371.E3
       LATMIN=0.
       LATMAX=50
-      LONGMIN=-100
-      LONGMAX=-50.
+      LONGMIN=100
+      LONGMAX=-200.
 c
       PI=3.1415927E0
       RAMP=1.E0
