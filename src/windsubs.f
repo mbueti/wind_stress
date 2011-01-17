@@ -502,6 +502,13 @@ C
       WRITE(40) WVSURF
       CLOSE(40)
       WRITE(6,*) ' --> ',FN
+C
+      FN = 'WINDXY.'//DOUT
+      OPEN(41,FILE=FN,STATUS='UNKNOWN',form='unformatted')
+      WRITE(41) windx
+      WRITE(41) windy
+      CLOSE(41)
+      WRITE(6,*) ' --> ',FN
 C      
       RETURN
       END
@@ -945,8 +952,8 @@ c      RANGL=ANGL(K)*PI/180.
       WR=-WND*SIN(RANGL)
       WX=WR*(DELTAX)/R-WF*(DELTAY)/R+UTXa
       WY=WF*(DELTAX)/R+WR*(DELTAY)/R+UTYa
-c      WINDX(i,j)=WX
-c      WINDY(i,j)=WY
+      WINDX(i,j)=WX
+      WINDY(i,j)=WY
       WM=SQRT(WX**2+WY**2)
 
       IF(WM.LT.10.) THEN
